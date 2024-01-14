@@ -1,0 +1,82 @@
+﻿@model Proiect_Rent_A_Car.Models.Order
+
+@{
+    ViewBag.Title = "MakeOrder";
+}
+
+<div>
+    <h4>Listing</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Listing.Car.Make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Listing.Car.Make)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Listing.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Listing.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Listing.WarrantyCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Listing.WarrantyCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Listing.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Listing.Description)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(model => model.PickUpDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PickUpDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PickUpDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ReturnDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ReturnDate, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ReturnDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+        @foreach (var extra in ViewBag.Extras)
+        {
+        <div class="form-group">
+            <div style="margin-left:105px">
+                <input type="checkbox" /> @extra.Name
+            </div>
+        </div>
+
+         }
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="MakeOrder" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
