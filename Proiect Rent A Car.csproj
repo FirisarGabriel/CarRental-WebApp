@@ -178,6 +178,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="Migrations\202401031637421_AddedCars.cs" />
     <Compile Include="Migrations\202401031637421_AddedCars.Designer.cs">
       <DependentUpon>202401031637421_AddedCars.cs</DependentUpon>
@@ -233,6 +234,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="libman.json" />
+    <Content Include="wwwroot\js\signalr\dist\browser\signalr.js" />
+    <Content Include="wwwroot\js\signalr\dist\browser\signalr.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
